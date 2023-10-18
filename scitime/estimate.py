@@ -430,6 +430,8 @@ class RuntimeEstimator(LogMixin):
 
             self.logger.info(f'''The {100 * self.confidence}% prediction interval is [{cleaned_lower_bound}, {cleaned_upper_bound}]''')
 
+            self.logger.info(f"\n\n\nScore: {cleaned_prediction.split("minute(s)"[0])}\n\n\n")
+
         return prediction, lower_bound, upper_bound
 
     def time(self, algo, X, y=None):
