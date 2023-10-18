@@ -86,40 +86,41 @@ class RuntimeEstimator(LogMixin):
 
         :param seconds: output of meta prediction
         :return: cleaned output (string)
-        """
-        full_minutes = seconds // 60
-        seconds_rest = seconds % 60
+        # """
+        # full_minutes = seconds // 60
+        # seconds_rest = seconds % 60
 
-        if seconds_rest == 1:
-            sec_unit = f'second'
+        # if seconds_rest == 1:
+        #     sec_unit = f'second'
 
-        else:
-            sec_unit = f'seconds'
+        # else:
+        #     sec_unit = f'seconds'
 
-        if full_minutes == 0:
-            return f'{seconds:.0f} {sec_unit}'
+        # if full_minutes == 0:
+        #     return f'{seconds:.0f} {sec_unit}'
 
-        else:
-            full_hours = full_minutes // 60
-            minutes_rest = full_minutes % 60
+        # else:
+        #     full_hours = full_minutes // 60
+        #     minutes_rest = full_minutes % 60
 
-            if minutes_rest == 1:
-                min_unit = f'minute'
-            else:
-                min_unit = f'minutes'
+        #     if minutes_rest == 1:
+        #         min_unit = f'minute'
+        #     else:
+        #         min_unit = f'minutes'
 
-            if full_hours == 0:
-                return f'''{full_minutes:.0f} {min_unit}
-                and {seconds_rest:.0f} {sec_unit}'''
+        #     if full_hours == 0:
+        #         return f'''{full_minutes:.0f} {min_unit}
+        #         and {seconds_rest:.0f} {sec_unit}'''
 
-            else:
-                if full_hours == 1:
-                    h_unit = f'hour'
-                else:
-                    h_unit = f'hours'
+        #     else:
+        #         if full_hours == 1:
+        #             h_unit = f'hour'
+        #         else:
+        #             h_unit = f'hours'
 
                 return f'''{full_hours:.0f} {h_unit} and {minutes_rest:.0f}
                 {min_unit} and {seconds_rest:.0f} {sec_unit}'''
+                return f"{seconds/60} minute(s)"
 
     @staticmethod
     def _fetch_algo_metadata(algo):
