@@ -1,16 +1,14 @@
-from sklearn.cluster import KMeans
+from sklearn.ensemble import RandomForestRegressor
 import numpy as np
-import time
-
 from scitime import RuntimeEstimator
+from sklearn import datasets
 
-# example for kmeans clustering
+# example for rf regressor
 estimator = RuntimeEstimator(meta_algo='NN', verbose=3)
-km = KMeans()
+rf = RandomForestRegressor()
 
-X = np.random.rand(100000,10)
+X, y  = datasets.load_diabetes(return_X_y = True)
 # run the estimation
-estimation, lower_bound, upper_bound = estimator.time(km, X)
+estimation, lower_bound, upper_bound = estimator.time(rf, X, y)
 
-# compare to the actual training time
-km.fit(X)
+rf.fit(X,y)
