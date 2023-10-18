@@ -118,9 +118,9 @@ class RuntimeEstimator(LogMixin):
         #         else:
         #             h_unit = f'hours'
 
-                return f'''{full_hours:.0f} {h_unit} and {minutes_rest:.0f}
-                {min_unit} and {seconds_rest:.0f} {sec_unit}'''
-                return f"{seconds/60} minute(s)"
+                # return f'''{full_hours:.0f} {h_unit} and {minutes_rest:.0f}
+                # {min_unit} and {seconds_rest:.0f} {sec_unit}'''
+        return f"{seconds/60} minute(s)"
 
     @staticmethod
     def _fetch_algo_metadata(algo):
